@@ -49,8 +49,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Email</h3>
-                    <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                      contact@joewebservices.com
+                    <a href="mailto:rakeshjoe52@gmail.com" className="text-gray-600 hover:text-blue-600 transition-colors">
+                      rakeshjoe52@gmail.com
                     </a>
                   </div>
                 </div>
@@ -101,7 +101,7 @@ const Contact = () => {
                         <Github className="w-5 h-5" />
                       </a>
                       <a 
-                        href="mailto:info@joewebservices.com"
+                        href="mailto:rakeshjoe52@gmail.com"
                         className="bg-white/20 p-2 rounded-full hover:bg-white/30 transition-colors"
                         aria-label="Email"
                       >

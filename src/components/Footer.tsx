@@ -29,7 +29,7 @@ const Footer = () => {
                 <Github />
               </a>
               <a 
-                href="mailto:info@joewebservices.com"
+                href="mailto:rakeshjoe52@gmail.com"
                 className="text-white hover:text-blue-300 transition-colors"
                 aria-label="Email"
               >

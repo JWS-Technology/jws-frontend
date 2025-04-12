@@ -25,17 +25,32 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast.success("Message sent successfully!");
+    try {
+      // Create mailto link with form data
+      const subject = encodeURIComponent(formData.subject);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+      
+      // Open email client with pre-filled data
+      window.location.href = `mailto:rakeshjoe52@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Show success message
+      toast.success("Email client opened. Please send the email to complete your message.");
+      
+      // Clear form
       setFormData({
         name: "",
         email: "",
         subject: "",
         message: "",
       });
-    }, 1500);
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Failed to open email client. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
