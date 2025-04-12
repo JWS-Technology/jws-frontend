@@ -27,19 +27,24 @@ function ScrollToTop() {
 }
 
 function App() {
-  // Handle smooth scrolling on in-page navigation only
+  // Handle smooth scrolling on in-page navigation
   useEffect(() => {
+    // For desktop: ensure smooth scrolling behavior is set in the HTML element
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
     const handleLinkClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+      // Check if the clicked element is an anchor tag with a hash link
       if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
         e.preventDefault();
         const targetId = target.getAttribute('href')?.substring(1);
         const targetElement = document.getElementById(targetId || '');
         
         if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest'
           });
         }
       }
@@ -49,6 +54,7 @@ function App() {
     
     return () => {
       document.removeEventListener('click', handleLinkClick);
+      document.documentElement.style.scrollBehavior = '';
     };
   }, []);
 
