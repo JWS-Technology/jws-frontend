@@ -1,62 +1,29 @@
 
-import React from 'react';
-import { cn } from '@/lib/utils';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface ServiceCardProps {
+  icon: LucideIcon;
   title: string;
   description: string;
-  icon: React.ReactNode;
-  imageSrc: string;
-  link: string;
-  className?: string;
-  style?: React.CSSProperties;
+  delay?: number;
 }
 
-const ServiceCard = ({
-  title,
-  description,
-  icon,
-  imageSrc,
-  link,
-  className,
-  style
-}: ServiceCardProps) => {
+const ServiceCard = ({ icon: Icon, title, description, delay = 0 }: ServiceCardProps) => {
   return (
-    <div 
-      className={cn(
-        "glassmorphism overflow-hidden group card-hover transition-all duration-500",
-        className
-      )}
-      style={style}
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: delay * 0.1 }}
+      viewport={{ once: true }}
+      className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all group"
     >
-      <div className="relative h-48 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-psyco-black-DEFAULT to-transparent z-10"></div>
-        <img 
-          src={imageSrc} 
-          alt={title} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute top-4 left-4 z-20 bg-psyco-black-card p-2 rounded-lg">
-          <div className="text-psyco-green-DEFAULT">
-            {icon}
-          </div>
-        </div>
+      <div className="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+        <Icon className="text-blue-600 w-7 h-7" />
       </div>
-      
-      <div className="p-6">
-        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-        <p className="text-gray-300 mb-4 text-sm">{description}</p>
-        <Link 
-          to={link}
-          className="inline-flex items-center text-psyco-green-light hover:text-psyco-green-DEFAULT transition-colors duration-300 text-sm font-medium"
-        >
-          Learn more
-          <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-        </Link>
-      </div>
-    </div>
+      <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">{title}</h3>
+      <p className="text-gray-600">{description}</p>
+    </motion.div>
   );
 };
 

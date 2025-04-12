@@ -1,231 +1,359 @@
 
-import React, { useEffect } from "react";
-import { Volume2, Lightbulb, Music2, Speaker, Mic, MonitorSpeaker, Wrench, Video, Film, MoveRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { 
+  Code, 
+  Database, 
+  Globe, 
+  Layout, 
+  LifeBuoy, 
+  Layers, 
+  Monitor, 
+  RefreshCw, 
+  Server, 
+  Shield 
+} from "lucide-react";
 
 const Services = () => {
-  // Scroll to top on page load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const mainServices = [
+  const services = [
     {
-      id: "sound",
-      icon: <Volume2 size={32} />,
-      title: "Sound System",
-      description: "Professional sound setups tailored to your venue and event size. From intimate gatherings to large festival spaces, we provide crystal-clear audio with expert setup and operation.",
-      image: "/lovable-uploads/708f9e32-840d-46a4-aaa4-75ad2689e16f.png",
+      id: "web-development",
+      title: "Custom Web App Development",
+      description:
+        "We create tailored web applications that perfectly match your business requirements. From simple websites to complex applications, our solutions are built with scalability and maintainability in mind.",
+      icon: Code,
       features: [
-        "6x Funktion One Res E4",
-        "4x Martin Audio Bass Bin 215",
-        "8x KWS Pi-Horn sub",
-        "powered by 5x Labgruppen PLM 20000Q",
-        "complete cabling and power management"
-      ]
+        "Responsive and mobile-first design",
+        "Interactive user interfaces",
+        "Performance optimization",
+        "Cross-browser compatibility",
+      ],
     },
     {
-      id: "lighting",
-      icon: <Lightbulb size={32} />,
-      title: "Lighting Equipment",
-      description: "Create the perfect atmosphere with our state-of-the-art lighting equipment. From subtle ambient lighting to dynamic stage shows, we design and operate custom lighting solutions.",
-      image: "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80",
+      id: "architecture",
+      title: "Frontend & Backend Architecture",
+      description:
+        "Our architectural approach ensures your application is built on solid foundations. We design robust systems that can scale with your business growth and adapt to changing requirements.",
+      icon: Layers,
       features: [
-        "Moving head fixtures",
-        "LED wash lights",
-        "Beam effects",
-        "Stage spotlights",
-        "Laser systems",
-        "DMX controllers and programming"
-      ]
+        "Scalable architecture design",
+        "Code organization and structure",
+        "State management solutions",
+        "Database schema design",
+      ],
     },
     {
-      id: "dj",
-      icon: <Music2 size={32} />,
-      title: "DJ Services",
-      description: "Our professional DJs bring the right energy to your event with perfect music selection and mixing. We work with you to create custom playlists that match your event's vibe and audience.",
-      image: "https://images.unsplash.com/photo-1516873240891-4bf014728d44?auto=format&fit=crop&q=80",
+      id: "api-development",
+      title: "API Development & Integration",
+      description:
+        "We build reliable APIs that connect your application with external services and data sources. Our integration services ensure smooth data flow between different parts of your system.",
+      icon: Server,
       features: [
-        "Experienced professional DJs",
-        "High-quality controllers and equipment",
-        "Extensive music library",
-        "Custom playlist creation",
-        "Seamless mixing",
-        "MC services available"
-      ]
-    }
-  ];
-
-  const additionalServices = [
-    {
-      icon: <Speaker size={24} />,
-      title: "PA Rental",
-      description: "Complete PA systems for events of any size."
+        "RESTful API design",
+        "Third-party API integration",
+        "API documentation",
+        "Authentication and security",
+      ],
     },
     {
-      icon: <Mic size={24} />,
-      title: "Microphone Systems",
-      description: "Professional-grade wired and wireless microphones."
+      id: "maintenance",
+      title: "Maintenance & Performance Optimization",
+      description:
+        "Keep your application running smoothly with our maintenance services. We optimize performance, fix bugs, and update your application to ensure it remains secure and efficient.",
+      icon: RefreshCw,
+      features: [
+        "Regular updates and patches",
+        "Performance monitoring",
+        "Bug fixing and troubleshooting",
+        "Security audits",
+      ],
     },
     {
-      icon: <MonitorSpeaker size={24} />,
-      title: "Studio Monitoring",
-      description: "High-quality monitoring for recording sessions."
+      id: "ui-design",
+      title: "UI/UX Design",
+      description:
+        "Create intuitive and engaging user experiences that delight your customers. Our design approach focuses on both aesthetics and usability to create interfaces that are both beautiful and functional.",
+      icon: Layout,
+      features: [
+        "User-centered design",
+        "Wireframing and prototyping",
+        "Visual design",
+        "Usability testing",
+      ],
     },
     {
-      icon: <Wrench size={24} />,
-      title: "Technical Support",
-      description: "On-site technicians to ensure everything runs smoothly."
+      id: "consulting",
+      title: "Technical Consulting",
+      description:
+        "Get expert advice on your technical challenges. Our consulting services help you make informed decisions about technology choices, architecture, and development strategies.",
+      icon: LifeBuoy,
+      features: [
+        "Technology stack recommendations",
+        "Code reviews",
+        "Architecture evaluation",
+        "Best practices guidance",
+      ],
     },
-    {
-      icon: <Video size={24} />,
-      title: "Visual Equipment",
-      description: "Projectors, LED screens, and visual mapping solutions."
-    },
-    {
-      icon: <Film size={24} />,
-      title: "Special Effects",
-      description: "Fog machines, CO2 jets, and other special effects."
-    }
   ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-psyco-black-light py-20 px-6 md:px-12 relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-96 h-96 bg-psyco-green-DEFAULT/10 rounded-full blur-3xl top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in">Our Services</h1>
-            <p className="text-xl text-gray-300 mb-8 animate-fade-in animation-delay-100">
-              Professional sound and lighting solutions for events of all sizes. From intimate gatherings to large-scale productions, we have the expertise and equipment to make your event exceptional.
+      <section className="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-20">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="max-w-3xl mx-auto text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Our <span className="text-blue-600 heading-glow">Services</span>
+            </h1>
+            <p className="text-lg text-gray-700 mb-8">
+              We offer comprehensive web development solutions tailored to your business needs
             </p>
-            <Link
-              to="/booking"
-              className="inline-flex items-center bg-psyco-green-DEFAULT hover:bg-psyco-green-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 btn-glow animate-fade-in animation-delay-200"
-            >
-              Book a Service
-              <MoveRight className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Main Services */}
-      <section className="py-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-2">What We Offer</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Comprehensive sound and lighting solutions for any event
-            </p>
-          </div>
-          
-          {mainServices.map((service, index) => (
-            <div 
-              key={service.id}
-              id={service.id}
-              className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 mb-20 last:mb-0 animate-fade-in`}
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="w-full lg:w-1/2">
-                <div className="glassmorphism p-1 rounded-2xl h-full">
-                  <div className="relative w-full h-full overflow-hidden rounded-xl">
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="object-cover w-full h-full aspect-video lg:aspect-auto transition-transform duration-10000 hover:scale-110"
-                    />
+      {/* Services List */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-16">
+            {services.map((service, index) => (
+              <motion.div 
+                key={service.id}
+                id={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className={`grid md:grid-cols-2 gap-8 items-center ${
+                  index % 2 === 1 ? "md:flex-row-reverse" : ""
+                }`}
+              >
+                <div className={`space-y-6 ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                  <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <service.icon className="text-blue-600 w-7 h-7" />
+                  </div>
+                  <h2 className="text-3xl font-bold">{service.title}</h2>
+                  <p className="text-gray-600">{service.description}</p>
+                  
+                  <div className="mt-6">
+                    <h3 className="font-semibold text-lg mb-3">Key Features:</h3>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="flex items-start">
+                          <span className="text-blue-600 mr-2">✓</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              </div>
-              
-              <div className="w-full lg:w-1/2 flex flex-col justify-center">
-                <div className="text-psyco-green-DEFAULT mb-4">
-                  {service.icon}
-                </div>
-                <h3 className="text-2xl font-semibold text-white mb-4">{service.title}</h3>
-                <p className="text-gray-300 mb-6">{service.description}</p>
                 
-                <div className="bg-psyco-black-light rounded-xl p-6">
-                  <h4 className="text-lg font-medium text-white mb-4">{service.id === 'sound' ? 'Our Equipment:' : 'What\'s Included:'}</h4>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <div className="text-psyco-green-DEFAULT mt-1 mr-2">
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.66675 10.1148L12.7947 3.98608L13.7381 4.92875L6.66675 12.0001L2.42675 7.76008L3.36941 6.81741L6.66675 10.1148Z" fill="currentColor" />
-                          </svg>
-                        </div>
-                        <span className="text-gray-300">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className={`${index % 2 === 1 ? "md:order-1" : ""}`}>
+                  <div className="bg-blue-50 p-6 rounded-lg h-full flex flex-col justify-center">
+                    <div className="aspect-square max-w-xs mx-auto flex items-center justify-center">
+                      <service.icon className="w-24 h-24 text-blue-600 opacity-80" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      
-      {/* Additional Services */}
-      <section className="py-20 px-6 md:px-12 bg-psyco-black-light">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-2">Additional Services</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Specialized equipment and services to enhance your event
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {additionalServices.map((service, index) => (
-              <div 
-                key={index}
-                className="glassmorphism p-6 card-hover animate-fade-in"
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                <div className="text-psyco-green-DEFAULT mb-4">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-medium text-white mb-2">{service.title}</h3>
-                <p className="text-gray-300">{service.description}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
-      
-      {/* CTA Section */}
-      <section className="py-20 px-6 md:px-12 relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-96 h-96 bg-psyco-green-DEFAULT/10 rounded-full blur-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="glassmorphism p-8 md:p-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Make Your Event Exceptional?</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-              Our team of experts is ready to help you plan and execute the perfect audio-visual experience for your event.
+
+      {/* Process Section */}
+      <section className="py-16 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center max-w-2xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Our <span className="text-blue-600 heading-glow">Process</span>
+            </h2>
+            <p className="text-gray-600">
+              We follow a structured approach to deliver high-quality web solutions.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/booking"
-                className="bg-psyco-green-DEFAULT hover:bg-psyco-green-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center btn-glow"
+          </motion.div>
+
+          <div className="relative max-w-4xl mx-auto">
+            {/* Connection line */}
+            <div className="absolute left-16 top-0 bottom-0 w-1 bg-blue-200 hidden md:block"></div>
+
+            {/* Process steps */}
+            {[
+              {
+                step: "01",
+                title: "Discovery & Planning",
+                description: "We start by understanding your goals, requirements, and business challenges.",
+              },
+              {
+                step: "02",
+                title: "Design & Architecture",
+                description: "We create wireframes and choose the right technology stack for your project.",
+              },
+              {
+                step: "03",
+                title: "Development",
+                description: "Our developers write clean, efficient, and scalable code to bring your vision to life.",
+              },
+              {
+                step: "04",
+                title: "Testing & Optimization",
+                description: "We thoroughly test the application and optimize it for performance and security.",
+              },
+              {
+                step: "05",
+                title: "Deployment",
+                description: "We deploy your application and provide documentation and training.",
+              },
+              {
+                step: "06",
+                title: "Support",
+                description: "We offer ongoing maintenance and support to keep your application running smoothly.",
+              },
+            ].map((item, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="flex mb-12 last:mb-0"
               >
-                Book Now
-                <MoveRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                to="/references"
-                className="bg-transparent border border-psyco-green-DEFAULT text-psyco-green-DEFAULT hover:bg-psyco-green-DEFAULT/10 font-medium py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center"
+                <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold mr-8 z-10 flex-shrink-0">
+                  {item.step}
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Service Features */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center max-w-2xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Why Choose <span className="text-blue-600 heading-glow">Our Services</span>
+            </h2>
+            <p className="text-gray-600">
+              We're committed to delivering exceptional results that exceed your expectations.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Monitor,
+                title: "Responsive Design",
+                description: "All our applications are designed to work perfectly on any device and screen size.",
+              },
+              {
+                icon: Shield,
+                title: "Security First",
+                description: "We prioritize security in every aspect of the development process.",
+              },
+              {
+                icon: Globe,
+                title: "SEO Friendly",
+                description: "Our applications are optimized for search engines to improve your online presence.",
+              },
+              {
+                icon: Database,
+                title: "Scalable Solutions",
+                description: "Our applications can grow with your business without compromising performance.",
+              },
+              {
+                icon: RefreshCw,
+                title: "Continuous Support",
+                description: "We provide ongoing support and maintenance to keep your application up-to-date.",
+              },
+              {
+                icon: Code,
+                title: "Clean Code",
+                description: "We write clean, maintainable code that follows best practices and industry standards.",
+              },
+            ].map((feature, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white border border-gray-100 rounded-lg p-6 shadow-sm hover:shadow-md transition-all"
               >
-                View Our References
+                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                  <feature.icon className="text-blue-600 w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              Ready to get started?
+            </motion.h2>
+            <motion.p 
+              className="text-xl mb-8 opacity-90"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Contact us today to discuss your project and how we can help.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-wrap gap-4 justify-center"
+            >
+              <Link 
+                to="/contact" 
+                className="bg-white text-blue-700 px-8 py-3 rounded-md font-bold hover:bg-blue-50 transition-colors inline-block hover:shadow-glow-white"
+              >
+                Get in Touch
               </Link>
-            </div>
+              <Link 
+                to="/projects" 
+                className="border-2 border-white text-white px-8 py-3 rounded-md font-bold hover:bg-white/10 transition-colors inline-block"
+              >
+                View Our Work
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>

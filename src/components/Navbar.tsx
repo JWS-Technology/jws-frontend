@@ -1,109 +1,146 @@
 
-import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'References', path: '/references' },
-    { name: 'Booking', path: '/booking' },
-  ];
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  const navbarClasses = `
+    fixed top-0 w-full z-50 transition-all duration-300
+    ${isScrolled ? "bg-white/95 backdrop-blur-sm shadow-md py-3" : "bg-transparent py-5"}
+  `;
+
+  const activeLinkClass = "text-blue-600 font-semibold";
+  const linkClass = "px-4 py-2 font-medium hover:text-blue-600 transition-colors";
 
   return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12',
-        scrolled ? 'glassmorphism bg-opacity-80' : 'bg-transparent'
-      )}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <NavLink to="/" className="flex items-center">
-          <div className="h-16 w-auto md:h-20 md:w-auto relative">
-            <img 
-              src="/lovable-uploads/47497b1d-b110-4737-abe3-ebf01ae8c243.png" 
-              alt="PSK Services Logo" 
-              className="h-full w-auto object-contain" 
-            />
-          </div>
+    <header className={navbarClasses}>
+      <div className="container mx-auto px-4 flex justify-between items-center">
+        <NavLink to="/" className="flex items-center space-x-2">
+          <span className="font-montserrat font-bold text-2xl text-blue-800">
+            JWS
+            <span className="text-blue-500">.</span>
+          </span>
         </NavLink>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className={({ isActive }) =>
-                cn(
-                  'text-white hover:text-green-400 transition-colors duration-300 link-hover text-sm font-medium tracking-wide',
-                  isActive && 'text-green-500 after:w-full'
-                )
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
-        </div>
+        <nav className="hidden md:flex items-center space-x-1">
+          <NavLink to="/" className={({ isActive }) => isActive ? activeLinkClass : linkClass} end>
+            Home
+          </NavLink>
+          <NavLink to="/about" className={({ isActive }) => isActive ? activeLinkClass : linkClass}>
+            About
+          </NavLink>
+          <NavLink to="/services" className={({ isActive }) => isActive ? activeLinkClass : linkClass}>
+            Services
+          </NavLink>
+          <NavLink to="/projects" className={({ isActive }) => isActive ? activeLinkClass : linkClass}>
+            Projects
+          </NavLink>
+          <NavLink to="/contact" className={({ isActive }) => isActive ? activeLinkClass : linkClass}>
+            Contact
+          </NavLink>
+          <a 
+            href="https://github.com/joe-webServices" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="px-4 py-2 ml-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors hover:shadow-glow-blue"
+          >
+            GitHub
+          </a>
+        </nav>
 
-        {/* Mobile Navigation Toggle */}
-        <button
-          className="md:hidden text-white hover:text-green-400 transition-colors"
-          onClick={() => setIsOpen(!isOpen)}
+        {/* Mobile Button */}
+        <button 
+          onClick={toggleMenu}
+          className="md:hidden text-blue-800 hover:text-blue-600 transition-colors p-2"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      <div
-        className={cn(
-          'fixed inset-0 z-40 glassmorphism pt-24 px-8 transition-all duration-300 ease-in-out transform md:hidden',
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        )}
-      >
-        <div className="flex flex-col space-y-4">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className={({ isActive }) =>
-                cn(
-                  'text-white hover:text-green-400 py-2 text-xl transition-colors duration-300',
-                  isActive && 'text-green-500'
-                )
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg animate-fade-in">
+          <div className="container mx-auto px-4 py-4 flex flex-col space-y-3">
+            <NavLink 
+              to="/" 
+              className={({ isActive }) => 
+                `px-4 py-2 ${isActive ? "text-blue-600 font-semibold" : "hover:text-blue-600"}`
               }
+              onClick={closeMenu}
+              end
             >
-              {link.name}
+              Home
             </NavLink>
-          ))}
+            <NavLink 
+              to="/about" 
+              className={({ isActive }) => 
+                `px-4 py-2 ${isActive ? "text-blue-600 font-semibold" : "hover:text-blue-600"}`
+              }
+              onClick={closeMenu}
+            >
+              About
+            </NavLink>
+            <NavLink 
+              to="/services" 
+              className={({ isActive }) => 
+                `px-4 py-2 ${isActive ? "text-blue-600 font-semibold" : "hover:text-blue-600"}`
+              }
+              onClick={closeMenu}
+            >
+              Services
+            </NavLink>
+            <NavLink 
+              to="/projects" 
+              className={({ isActive }) => 
+                `px-4 py-2 ${isActive ? "text-blue-600 font-semibold" : "hover:text-blue-600"}`
+              }
+              onClick={closeMenu}
+            >
+              Projects
+            </NavLink>
+            <NavLink 
+              to="/contact" 
+              className={({ isActive }) => 
+                `px-4 py-2 ${isActive ? "text-blue-600 font-semibold" : "hover:text-blue-600"}`
+              }
+              onClick={closeMenu}
+            >
+              Contact
+            </NavLink>
+            <a 
+              href="https://github.com/joe-webServices" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-center"
+              onClick={closeMenu}
+            >
+              GitHub
+            </a>
+          </div>
         </div>
-      </div>
-    </nav>
+      )}
+    </header>
   );
 };
 

@@ -1,145 +1,214 @@
 
-import React, { useEffect } from "react";
-import HeroSection from "@/components/HeroSection";
-import ServiceCard from "@/components/ServiceCard";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Volume2, Music2, Lightbulb, PartyPopper, MoveRight, CalendarDays } from "lucide-react";
+import { Code, Database, Globe, Layers, Rocket, Server } from "lucide-react";
+import ServiceCard from "../components/ServiceCard";
 
 const Index = () => {
-  // Scroll to top on page load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const featuredServices = [
-    {
-      title: "Sound System",
-      description: "Professional sound systems for any size venue, from small gatherings to large festivals.",
-      icon: <Volume2 size={24} />,
-      imageSrc: "/lovable-uploads/708f9e32-840d-46a4-aaa4-75ad2689e16f.png",
-      link: "/services#sound"
-    },
-    {
-      title: "Lighting Equipment",
-      description: "Create the perfect atmosphere with our state-of-the-art lighting equipment and expert setup.",
-      icon: <Lightbulb size={24} />,
-      imageSrc: "https://images.unsplash.com/photo-1551696785-927d4ac2d35b?auto=format&fit=crop&q=80",
-      link: "/services#lighting"
-    },
-    {
-      title: "DJ Services",
-      description: "Experienced DJs to keep your event energized with the perfect music selection.",
-      icon: <Music2 size={24} />,
-      imageSrc: "/lovable-uploads/03e83f18-76a1-4349-a197-dbde03a93343.png",
-      link: "/services#dj"
-    }
-  ];
-
   return (
-    <div>
-      <HeroSection />
-      
-      {/* Services Section */}
-      <section className="py-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-2">Our Services</h2>
-              <p className="text-gray-400 max-w-2xl">
-                Professional equipment and expert technicians for all your sound and lighting needs
-              </p>
-            </div>
-            <Link 
-              to="/services"
-              className="mt-4 sm:mt-0 flex items-center text-psyco-green-DEFAULT hover:text-psyco-green-light transition-colors"
+    <div className="pt-16">
+      {/* Hero Section */}
+      <section className="min-h-screen flex items-center bg-gradient-to-br from-blue-50 via-white to-blue-100">
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <div className="grid md:grid-cols-12 gap-8 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="md:col-span-7 space-y-6"
             >
-              View all services
-              <MoveRight className="ml-1 h-4 w-4" />
-            </Link>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredServices.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                className="animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Event Types Section */}
-      <section className="py-20 px-6 md:px-12 bg-psyco-black-light">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-2">Perfect for Any Event</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              We provide custom sound and lighting solutions for a wide range of events
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {[
-              { name: "Concerts", icon: <Volume2 size={32} /> },
-              { name: "Weddings", icon: <PartyPopper size={32} /> },
-              { name: "Corporate", icon: <CalendarDays size={32} /> },
-              { name: "Festivals", icon: <Music2 size={32} /> }
-            ].map((event, index) => (
-              <div 
-                key={index}
-                className="glassmorphism flex flex-col items-center justify-center py-8 px-4 text-center card-hover animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="text-psyco-green-DEFAULT mb-4">
-                  {event.icon}
-                </div>
-                <h3 className="text-lg font-medium text-white">{event.name}</h3>
+              <div className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                Full-Stack Web Development
               </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-            <Link
-              to="/booking"
-              className="inline-flex items-center bg-psyco-green-DEFAULT hover:bg-psyco-green-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 btn-glow"
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                <span className="text-blue-600 heading-glow">Modern</span> Web Solutions for Your Business
+              </h1>
+              <p className="text-lg md:text-xl text-gray-600 max-w-2xl">
+                Building fast, scalable, and beautiful web applications with clean code and exceptional user experience.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Link to="/contact" className="btn-primary">
+                  Get In Touch
+                </Link>
+                <Link to="/services" className="btn-outline">
+                  Our Services
+                </Link>
+              </div>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="md:col-span-5"
             >
-              Book Your Event
-              <MoveRight className="ml-2 h-5 w-5" />
+              <div className="relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg blur-md opacity-75 glow"></div>
+                <div className="relative bg-white rounded-lg shadow-lg p-6">
+                  <div className="text-3xl font-bold mb-4 text-blue-600">JWS</div>
+                  <div className="space-y-2 mb-6">
+                    <div className="h-2 bg-gray-200 rounded w-3/4"></div>
+                    <div className="h-2 bg-gray-200 rounded w-full"></div>
+                    <div className="h-2 bg-gray-200 rounded w-2/3"></div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-blue-100 rounded-md">
+                      <Code className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div className="p-2 bg-blue-100 rounded-md">
+                      <Database className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div className="p-2 bg-blue-100 rounded-md">
+                      <Globe className="w-6 h-6 text-blue-600" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              Our <span className="text-blue-600 heading-glow">Services</span>
+            </motion.h2>
+            <motion.p 
+              className="text-gray-600"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              We offer comprehensive web development solutions tailored to your business needs.
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <ServiceCard 
+              icon={Code}
+              title="Custom Web App Development"
+              description="Building tailor-made web applications that perfectly match your business requirements and goals."
+              delay={1}
+            />
+            <ServiceCard 
+              icon={Layers}
+              title="Frontend & Backend Architecture"
+              description="Creating robust architectures that ensure your application is scalable, maintainable, and secure."
+              delay={2}
+            />
+            <ServiceCard 
+              icon={Database}
+              title="API Development & Integration"
+              description="Developing and integrating APIs to connect your application with external services and data sources."
+              delay={3}
+            />
+            <ServiceCard 
+              icon={Server}
+              title="Maintenance & Performance Optimization"
+              description="Ensuring your application remains fast, secure, and up-to-date with the latest technologies."
+              delay={4}
+            />
+            <ServiceCard 
+              icon={Globe}
+              title="Responsive Web Design"
+              description="Creating beautiful, mobile-friendly interfaces that work flawlessly across all devices."
+              delay={5}
+            />
+            <ServiceCard 
+              icon={Rocket}
+              title="Project Consulting"
+              description="Expert technical advice to help you make informed decisions about your web development projects."
+              delay={6}
+            />
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/services" className="btn-outline">
+              Learn More About Our Services
             </Link>
           </div>
         </div>
       </section>
-      
-      {/* CTA Section */}
-      <section className="py-20 px-6 md:px-12 bg-psyco-black-light relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-96 h-96 bg-psyco-green-DEFAULT/10 rounded-full blur-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Elevate Your Event?</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-              Let's work together to create an unforgettable experience for your guests. Book our services today and bring your vision to life.
+
+      {/* Tech Stack */}
+      <section className="bg-blue-50 py-20">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center max-w-2xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Our Tech <span className="text-blue-600 heading-glow">Stack</span>
+            </h2>
+            <p className="text-gray-600">
+              We use modern technologies to build high-performance web applications.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/booking"
-                className="bg-psyco-green-DEFAULT hover:bg-psyco-green-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center btn-glow"
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+            {["HTML", "CSS", "React", "Next.js", "Tailwind CSS", "PHP", "MongoDB", "Node.js", "PostgreSQL", "Git", "Docker", "AWS"].map((tech, index) => (
+              <motion.div 
+                key={tech}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-lg p-4 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all hover:-translate-y-1 text-center h-24"
               >
-                Book Now
-                <MoveRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                to="/services"
-                className="bg-transparent border border-psyco-green-DEFAULT text-psyco-green-DEFAULT hover:bg-psyco-green-DEFAULT/10 font-medium py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center"
+                <span className="font-bold text-blue-600">{tech}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              Ready to bring your ideas to life?
+            </motion.h2>
+            <motion.p 
+              className="text-xl mb-8 opacity-90"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Let's collaborate to create something amazing together.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Link 
+                to="/contact" 
+                className="bg-white text-blue-700 px-8 py-3 rounded-md font-bold hover:bg-blue-50 transition-colors inline-block hover:shadow-glow-white"
               >
-                View Services
+                Get Started
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

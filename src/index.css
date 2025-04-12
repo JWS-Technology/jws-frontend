@@ -1,144 +1,97 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 160 84% 39%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 160 84% 39%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 70%;
-
-    --accent: 160 84% 39%;
-    --accent-foreground: 0 0% 98%;
-
+    --background: 210 50% 98%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 160 84% 39%;
-
-    --radius: 0.75rem;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
   }
-
+}
+ 
+@layer base {
   * {
     @apply border-border;
   }
-
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
   body {
-    @apply bg-background text-foreground antialiased font-boldonse;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    @apply bg-background text-foreground font-inter;
   }
 
-  html {
-    @apply scroll-smooth font-boldonse;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat font-bold;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
   }
 }
 
 @layer components {
-  .glassmorphism {
-    @apply backdrop-blur-lg bg-black/70 border border-green-500/10 rounded-xl;
-    box-shadow: 0 4px 30px rgba(16, 185, 129, 0.1);
+  .section {
+    @apply py-20 px-4 md:px-8 lg:px-16;
   }
-  
-  .card-hover {
-    @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg;
-    box-shadow: 0 4px 10px rgba(16, 185, 129, 0);
-  }
-  
-  .card-hover:hover {
-    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
-  }
-  
-  .btn-glow {
-    @apply relative overflow-hidden;
-  }
-  
-  .btn-glow::after {
-    @apply content-[''] absolute top-0 left-[-100%] z-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-500;
-  }
-  
-  .btn-glow:hover::after {
-    @apply left-[100%];
-  }
-  
-  .text-glow {
-    text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-  }
-  
-  .section-padding {
-    @apply py-20 px-6 md:px-12 lg:px-24;
-  }
-  
-  .link-hover {
-    position: relative;
-  }
-  
-  .link-hover::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 0;
-    background-color: #10B981;
-    transition: all 0.3s;
-  }
-  
-  .link-hover:hover::after {
-    width: 100%;
-  }
-}
 
-.calendar-container .react-calendar {
-  @apply glassmorphism border-green-500/10 p-4;
-}
+  .container {
+    @apply mx-auto max-w-7xl;
+  }
 
-.calendar-container .react-calendar__tile--active {
-  @apply bg-green-500 text-white;
-}
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition-all 
+           shadow-md hover:shadow-glow-blue font-medium;
+  }
 
-.calendar-container .react-calendar__tile--now {
-  @apply bg-green-500/10 text-green-500;
-}
+  .btn-outline {
+    @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white 
+           px-6 py-3 rounded-md transition-all hover:shadow-glow-blue;
+  }
 
-.calendar-container .react-calendar__navigation button:enabled:hover,
-.calendar-container .react-calendar__navigation button:enabled:focus,
-.calendar-container .react-calendar__tile:enabled:hover,
-.calendar-container .react-calendar__tile:enabled:focus {
-  @apply bg-green-500/10 text-white;
-}
+  .card {
+    @apply bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300;
+  }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
+  .glow {
+    @apply shadow-glow-blue;
+  }
 
-::-webkit-scrollbar-track {
-  @apply bg-gray-900;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-green-700 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-green-500;
+  .heading-glow {
+    @apply text-blue-600 drop-shadow-md;
+  }
 }
