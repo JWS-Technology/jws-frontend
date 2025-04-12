@@ -1,11 +1,17 @@
 
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,6 +79,7 @@ const Navbar = () => {
         <button 
           onClick={toggleMenu}
           className="md:hidden text-blue-800 hover:text-blue-600 transition-colors p-2"
+          aria-label="Toggle navigation menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

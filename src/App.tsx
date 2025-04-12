@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from 'react';
 import { Toaster } from "./components/ui/sonner";
 
@@ -15,8 +15,19 @@ import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+// ScrollToTop component to reset scroll position on page change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return null;
+}
+
 function App() {
-  // Handle smooth scrolling on navigation
+  // Handle smooth scrolling on in-page navigation only
   useEffect(() => {
     const handleLinkClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -44,6 +55,7 @@ function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
+        <ScrollToTop />
         <Navbar />
         <main className="flex-grow">
           <Routes>
