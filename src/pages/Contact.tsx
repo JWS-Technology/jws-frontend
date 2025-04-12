@@ -66,12 +66,12 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg">GitHub</h3>
                     <a
-                      href="https://github.com/joe-webServices"
+                      href="https://github.com/joe-webservices"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 hover:text-blue-600 transition-colors"
                     >
-                      github.com/joe-webServices
+                      github.com/joe-webservices
                     </a>
                   </div>
                 </div>
