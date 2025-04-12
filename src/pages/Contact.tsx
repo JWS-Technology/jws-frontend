@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Github, Mail, MapPin, Phone } from "lucide-react";
 import ContactForm from "../components/ContactForm";
@@ -9,7 +8,7 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-20">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="max-w-3xl mx-auto text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -19,7 +18,8 @@ const Contact = () => {
               Get in <span className="text-blue-600 heading-glow">Touch</span>
             </h1>
             <p className="text-lg text-gray-700 mb-8">
-              Have a project in mind? Let's discuss how we can help bring your vision to life.
+              Have a project in mind? Let's discuss how we can help bring your
+              vision to life.
             </p>
           </motion.div>
         </div>
@@ -29,7 +29,7 @@ const Contact = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -38,7 +38,8 @@ const Contact = () => {
               <div>
                 <h2 className="text-3xl font-bold mb-6">Contact Information</h2>
                 <p className="text-gray-600 mb-8">
-                  Fill out the form and our team will get back to you within 24 hours.
+                  Fill out the form and our team will get back to you within 24
+                  hours.
                 </p>
               </div>
 
@@ -49,20 +50,23 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Email</h3>
-                    <a href="mailto:rakeshjoe52@gmail.com" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    <a
+                      href="mailto:rakeshjoe52@gmail.com"
+                      className="text-gray-600 hover:text-blue-600 transition-colors"
+                    >
                       rakeshjoe52@gmail.com
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="bg-blue-100 p-3 rounded-full mr-4">
                     <Github className="text-blue-600 w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">GitHub</h3>
-                    <a 
-                      href="https://github.com/joe-webServices" 
+                    <a
+                      href="https://github.com/joe-webServices"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 hover:text-blue-600 transition-colors"
@@ -82,25 +86,28 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="pt-4">
                 <div className="relative p-6 bg-blue-600 text-white rounded-lg overflow-hidden">
                   <div className="relative z-10">
-                    <h3 className="text-xl font-bold mb-2">Let's build something amazing together!</h3>
+                    <h3 className="text-xl font-bold mb-2">
+                      Let's build something amazing together!
+                    </h3>
                     <p className="opacity-90 mb-4">
-                      Have questions about our services or want to discuss a project? Feel free to reach out.
+                      Have questions about our services or want to discuss a
+                      project? Feel free to reach out.
                     </p>
                     <div className="flex space-x-4">
-                      <a 
-                        href="https://github.com/joe-webServices" 
-                        target="_blank" 
+                      <a
+                        href="https://github.com/joe-webservices"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="bg-white/20 p-2 rounded-full hover:bg-white/30 transition-colors"
                         aria-label="GitHub"
                       >
                         <Github className="w-5 h-5" />
                       </a>
-                      <a 
+                      <a
                         href="mailto:rakeshjoe52@gmail.com"
                         className="bg-white/20 p-2 rounded-full hover:bg-white/30 transition-colors"
                         aria-label="Email"
@@ -116,7 +123,7 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -128,7 +135,7 @@ const Contact = () => {
                   We'll get back to you as soon as possible.
                 </p>
               </div>
-              
+
               <ContactForm />
             </motion.div>
           </div>
@@ -138,7 +145,7 @@ const Contact = () => {
       {/* FAQ Section */}
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center max-w-2xl mx-auto mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -146,7 +153,8 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Frequently Asked <span className="text-blue-600 heading-glow">Questions</span>
+              Frequently Asked{" "}
+              <span className="text-blue-600 heading-glow">Questions</span>
             </h2>
             <p className="text-gray-600">
               Common questions about our services and process
@@ -157,26 +165,31 @@ const Contact = () => {
             {[
               {
                 question: "What type of projects do you work on?",
-                answer: "We specialize in web applications, e-commerce websites, corporate websites, and custom web solutions. Our expertise spans across various industries including tech, education, healthcare, and more.",
+                answer:
+                  "We specialize in web applications, e-commerce websites, corporate websites, and custom web solutions. Our expertise spans across various industries including tech, education, healthcare, and more.",
               },
               {
                 question: "How long does it take to complete a project?",
-                answer: "Project timelines vary based on complexity and scope. A simple website might take 2-3 weeks, while a complex web application could take 2-3 months. We'll provide you with a detailed timeline during the discovery phase.",
+                answer:
+                  "Project timelines vary based on complexity and scope. A simple website might take 2-3 weeks, while a complex web application could take 2-3 months. We'll provide you with a detailed timeline during the discovery phase.",
               },
               {
                 question: "Do you provide ongoing support after launch?",
-                answer: "Yes, we offer various maintenance and support packages to ensure your website remains secure, up-to-date, and performs optimally after launch. Our support services include regular updates, security patches, and technical assistance.",
+                answer:
+                  "Yes, we offer various maintenance and support packages to ensure your website remains secure, up-to-date, and performs optimally after launch. Our support services include regular updates, security patches, and technical assistance.",
               },
               {
                 question: "What is your pricing structure?",
-                answer: "Our pricing is project-based and depends on the complexity, features, and timeline. We provide detailed quotes after understanding your specific requirements. For simple websites, pricing starts at $X, while complex web applications start at $Y.",
+                answer:
+                  "Our pricing is project-based and depends on the complexity, features, and timeline. We provide detailed quotes after understanding your specific requirements. For simple websites, pricing starts at $X, while complex web applications start at $Y.",
               },
               {
                 question: "How do you handle revisions and feedback?",
-                answer: "We incorporate revision rounds into our project timeline. After each phase (design, development), you'll have the opportunity to provide feedback. We value collaboration and work closely with you to ensure the final product meets your expectations.",
+                answer:
+                  "We incorporate revision rounds into our project timeline. After each phase (design, development), you'll have the opportunity to provide feedback. We value collaboration and work closely with you to ensure the final product meets your expectations.",
               },
             ].map((faq, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
