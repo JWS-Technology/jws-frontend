@@ -12,6 +12,7 @@ const ContactForm = () => {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notificationSent, setNotificationSent] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -19,6 +20,32 @@ const ContactForm = () => {
       ...prev,
       [name]: value,
     }));
+  };
+
+  // Send SMS notification
+  const sendNotification = async () => {
+    try {
+      // This webhook URL should be replaced with your actual SMS service webhook
+      const webhookUrl = "https://maker.ifttt.com/trigger/contact_form_submitted/with/key/YOUR_IFTTT_KEY";
+      
+      await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors", // Handle CORS restrictions
+        body: JSON.stringify({
+          value1: formData.name,
+          value2: formData.email,
+          value3: formData.subject,
+        }),
+      });
+      
+      setNotificationSent(true);
+      console.log("SMS notification sent");
+    } catch (error) {
+      console.error("Failed to send notification:", error);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,6 +58,9 @@ const ContactForm = () => {
       const body = encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
       );
+      
+      // Send notification before opening email client
+      await sendNotification();
       
       // Open email client with pre-filled data
       window.location.href = `mailto:rakeshjoe52@gmail.com?subject=${subject}&body=${body}`;
