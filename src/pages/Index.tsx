@@ -1,8 +1,8 @@
-
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Code, Database, Globe, Layers, Rocket, Server } from "lucide-react";
 import ServiceCard from "../components/ServiceCard";
+import TechStackScroll from "../components/TechStackScroll";
 
 const Index = () => {
   return (
@@ -140,39 +140,7 @@ const Index = () => {
       </section>
 
       {/* Tech Stack */}
-      <section className="bg-blue-50 py-20">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center max-w-2xl mx-auto mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Our Tech <span className="text-blue-600 heading-glow">Stack</span>
-            </h2>
-            <p className="text-gray-600">
-              We use modern technologies to build high-performance web applications.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-            {["HTML", "CSS", "React", "Next.js", "Tailwind CSS", "PHP", "MongoDB", "Node.js", "PostgreSQL", "Git", "Docker", "AWS"].map((tech, index) => (
-              <motion.div 
-                key={tech}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-lg p-4 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all hover:-translate-y-1 text-center h-24"
-              >
-                <span className="font-bold text-blue-600">{tech}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TechStackScroll />
 
       {/* CTA Banner */}
       <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16">
