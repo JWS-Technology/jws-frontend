@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 import { Link } from "react-router-dom";
@@ -7,30 +6,18 @@ const Projects = () => {
   const projects = [
     {
       title: "Engzine",
-      description: "An ISSN-certified e-magazine website built for the Department of English, St. Joseph's College, Trichy. Offers a smooth, mobile-responsive reading experience with a clean layout.",
+      description:
+        "An ISSN-certified e-magazine website built for the Department of English, St. Joseph's College, Trichy. Offers a smooth, mobile-responsive reading experience with a clean layout.",
       techStack: ["HTML", "CSS", "JavaScript"],
-      image: "/lovable-uploads/03e83f18-76a1-4349-a197-dbde03a93343.png",
+      image: "https://joerakesh-portfolio.netlify.app/Projects/engzine.jpeg",
       link: "#",
     },
     {
       title: "Mergen",
-      description: "A digital e-journal platform developed for the Department of English, St. Joseph's College, Trichy. Tailored for academic journal publishing with structured content.",
+      description:
+        "A digital e-journal platform developed for the Department of English, St. Joseph's College, Trichy. Tailored for academic journal publishing with structured content.",
       techStack: ["HTML", "CSS", "JavaScript"],
-      image: "/placeholder.svg",
-      link: "#",
-    },
-    {
-      title: "Portfolio Website",
-      description: "A modern portfolio website showcasing services, projects, and contact information with a clean, responsive design.",
-      techStack: ["React", "Tailwind CSS", "Framer Motion"],
-      image: "/placeholder.svg",
-      link: "#",
-    },
-    {
-      title: "E-commerce Platform",
-      description: "A fully functional e-commerce platform with product listings, cart functionality, and payment integration.",
-      techStack: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "/placeholder.svg",
+      image: "https://joerakesh-portfolio.netlify.app/Projects/mergen.jpg",
       link: "#",
     },
   ];
@@ -40,19 +27,22 @@ const Projects = () => {
       name: "Sarah Johnson",
       position: "Marketing Director",
       company: "TechCorp",
-      testimonial: "Joe WebServices delivered a beautiful website that perfectly represents our brand. Their attention to detail and commitment to quality was impressive.",
+      testimonial:
+        "Joe WebServices delivered a beautiful website that perfectly represents our brand. Their attention to detail and commitment to quality was impressive.",
     },
     {
       name: "Michael Chen",
       position: "Founder",
       company: "Startup Hub",
-      testimonial: "Working with Joe WebServices was a great experience. They understood our requirements perfectly and delivered a website that exceeded our expectations.",
+      testimonial:
+        "Working with Joe WebServices was a great experience. They understood our requirements perfectly and delivered a website that exceeded our expectations.",
     },
     {
       name: "Emily Williams",
       position: "CEO",
       company: "Creative Solutions",
-      testimonial: "Joe WebServices helped us modernize our online presence with a responsive, user-friendly website that has significantly improved our customer engagement.",
+      testimonial:
+        "Joe WebServices helped us modernize our online presence with a responsive, user-friendly website that has significantly improved our customer engagement.",
     },
   ];
 
@@ -61,7 +51,7 @@ const Projects = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-20">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="max-w-3xl mx-auto text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -82,7 +72,7 @@ const Projects = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <ProjectCard 
+              <ProjectCard
                 key={index}
                 title={project.title}
                 description={project.description}
@@ -99,7 +89,7 @@ const Projects = () => {
       {/* Project Process */}
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center max-w-2xl mx-auto mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +97,8 @@ const Projects = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Our Project <span className="text-blue-600 heading-glow">Approach</span>
+              Our Project{" "}
+              <span className="text-blue-600 heading-glow">Approach</span>
             </h2>
             <p className="text-gray-600">
               How we turn your ideas into successful web applications
@@ -119,20 +110,23 @@ const Projects = () => {
               {
                 step: "01",
                 title: "Discovery",
-                description: "We begin by understanding your business goals, target audience, and project requirements. This helps us create a clear roadmap for your project.",
+                description:
+                  "We begin by understanding your business goals, target audience, and project requirements. This helps us create a clear roadmap for your project.",
               },
               {
                 step: "02",
                 title: "Design & Development",
-                description: "Our designers and developers work together to create a visually appealing and functional website tailored to your specific needs.",
+                description:
+                  "Our designers and developers work together to create a visually appealing and functional website tailored to your specific needs.",
               },
               {
                 step: "03",
                 title: "Delivery & Support",
-                description: "After thorough testing, we deploy your project and provide ongoing support to ensure it continues to meet your business needs.",
+                description:
+                  "After thorough testing, we deploy your project and provide ongoing support to ensure it continues to meet your business needs.",
               },
             ].map((step, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -154,9 +148,9 @@ const Projects = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center max-w-2xl mx-auto mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -164,7 +158,8 @@ const Projects = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Client <span className="text-blue-600 heading-glow">Testimonials</span>
+              Client{" "}
+              <span className="text-blue-600 heading-glow">Testimonials</span>
             </h2>
             <p className="text-gray-600">
               What our clients say about working with us
@@ -173,7 +168,7 @@ const Projects = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {clientTestimonials.map((testimonial, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -181,9 +176,13 @@ const Projects = () => {
                 viewport={{ once: true }}
                 className="bg-white border border-gray-100 rounded-lg p-6 shadow-md relative"
               >
-                <div className="text-5xl text-blue-100 absolute top-4 left-4">"</div>
+                <div className="text-5xl text-blue-100 absolute top-4 left-4">
+                  "
+                </div>
                 <div className="relative z-10">
-                  <p className="text-gray-600 mb-6 italic">"{testimonial.testimonial}"</p>
+                  <p className="text-gray-600 mb-6 italic">
+                    "{testimonial.testimonial}"
+                  </p>
                   <div className="flex items-center">
                     <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold mr-3">
                       {testimonial.name.charAt(0)}
@@ -200,13 +199,13 @@ const Projects = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -215,7 +214,7 @@ const Projects = () => {
             >
               Have a project in mind?
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-xl mb-8 opacity-90"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -230,8 +229,8 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="bg-white text-blue-700 px-8 py-3 rounded-md font-bold hover:bg-blue-50 transition-colors inline-block hover:shadow-glow-white"
               >
                 Start a Project
