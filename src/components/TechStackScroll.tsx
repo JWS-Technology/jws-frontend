@@ -1,4 +1,5 @@
-import { motion, useAnimation } from "framer-motion";
+
+import { motion, useAnimation, useMotionValue, useTransform } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { Code, Layers, Database, Globe, Server } from "lucide-react";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
@@ -16,6 +17,9 @@ const TechStackScroll = () => {
   const [isInView, setIsInView] = useState(false);
   const controls = useAnimation();
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollXPosition = useMotionValue(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [scrollWidth, setScrollWidth] = useState(0);
   
   const technologies: Technology[] = [
     {
@@ -62,12 +66,47 @@ const TechStackScroll = () => {
     }
   ];
 
+  // Calculate the total width of scrollable content
+  useEffect(() => {
+    if (scrollRef.current) {
+      const width = scrollRef.current.scrollWidth / 2;
+      setScrollWidth(width);
+    }
+  }, []);
+
+  // Control the scroll animation
+  useEffect(() => {
+    if (isInView && !isHovered && scrollWidth > 0) {
+      const infiniteScroll = async () => {
+        await controls.start({
+          x: -scrollWidth,
+          transition: {
+            duration: 20,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "loop"
+          }
+        });
+      };
+      
+      infiniteScroll();
+    } else if (isHovered) {
+      controls.stop();
+    } else {
+      controls.start({
+        x: scrollXPosition.get(),
+        transition: { duration: 0 }
+      });
+    }
+  }, [controls, isHovered, isInView, scrollWidth, scrollXPosition]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
           setIsInView(true);
-          controls.start("visible");
+        } else {
+          setIsInView(false);
         }
       },
       { threshold: 0.1 }
@@ -82,7 +121,7 @@ const TechStackScroll = () => {
         observer.unobserve(containerRef.current);
       }
     };
-  }, [controls]);
+  }, []);
 
   return (
     <div className="w-full overflow-hidden bg-gradient-to-b from-blue-50/50 via-white/90 to-white py-20" ref={containerRef}>
@@ -108,56 +147,53 @@ const TechStackScroll = () => {
         >
           <div className="absolute inset-0 backdrop-blur-[2px] bg-gradient-to-r from-transparent via-white/40 to-transparent rounded-2xl pointer-events-none"></div>
           
-          <motion.div 
-            className="flex gap-12 py-8 mx-auto max-w-5xl"
-            animate={{
-              x: isHovered ? 0 : "-50%"
-            }}
-            transition={{
-              duration: isHovered ? 0 : 30,
-              ease: "linear",
-              repeat: Infinity,
-            }}
-          >
-            {[...technologies, ...technologies].map((tech, index) => (
-              <HoverCard key={`${tech.name}-${index}`}>
-                <HoverCardTrigger asChild>
-                  <motion.div
-                    className="flex flex-col items-center justify-center gap-4 min-w-[140px] cursor-pointer"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <div className="relative w-28 h-28 flex items-center justify-center group">
-                      <div className="absolute inset-0 bg-white/50 backdrop-blur-sm rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      
-                      <img
-                        src={tech.logo}
-                        alt={tech.name}
-                        className="w-16 h-16 object-contain relative z-10 transition-all duration-300 group-hover:scale-110"
-                        loading="lazy"
-                      />
-                      
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-10 transition-opacity duration-300">
-                        <tech.icon className="w-24 h-24 text-blue-500" />
+          <div className="overflow-hidden">
+            <motion.div 
+              ref={scrollRef}
+              className="flex gap-12 py-8 mx-auto max-w-5xl"
+              style={{ x: scrollXPosition }}
+              animate={controls}
+            >
+              {[...technologies, ...technologies].map((tech, index) => (
+                <HoverCard key={`${tech.name}-${index}`}>
+                  <HoverCardTrigger asChild>
+                    <motion.div
+                      className="flex flex-col items-center justify-center gap-4 min-w-[140px] cursor-pointer"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <div className="relative w-28 h-28 flex items-center justify-center group">
+                        <div className="absolute inset-0 bg-white/50 backdrop-blur-sm rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        <img
+                          src={tech.logo}
+                          alt={tech.name}
+                          className="w-16 h-16 object-contain relative z-10 transition-all duration-300 group-hover:scale-110"
+                          loading="lazy"
+                        />
+                        
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                          <tech.icon className="w-24 h-24 text-blue-500" />
+                        </div>
+                      </div>
+                      <span className="text-sm font-medium text-gray-700">{tech.name}</span>
+                    </motion.div>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80 p-4 shadow-xl bg-white/95 backdrop-blur border border-blue-100/50">
+                    <div className="flex gap-3">
+                      <div className="p-2 rounded-md bg-blue-100/50">
+                        <tech.icon className="w-8 h-8 text-blue-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-lg mb-1">{tech.name}</h4>
+                        <p className="text-gray-600 text-sm">{tech.description}</p>
                       </div>
                     </div>
-                    <span className="text-sm font-medium text-gray-700">{tech.name}</span>
-                  </motion.div>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80 p-4 shadow-xl bg-white/95 backdrop-blur border border-blue-100/50">
-                  <div className="flex gap-3">
-                    <div className="p-2 rounded-md bg-blue-100/50">
-                      <tech.icon className="w-8 h-8 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-lg mb-1">{tech.name}</h4>
-                      <p className="text-gray-600 text-sm">{tech.description}</p>
-                    </div>
-                  </div>
-                </HoverCardContent>
-              </HoverCard>
-            ))}
-          </motion.div>
+                  </HoverCardContent>
+                </HoverCard>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
