@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -13,7 +12,8 @@ const About = () => {
     },
     {
       title: "Design & Architecture",
-      description: "Creating wireframes and selecting the right technology stack",
+      description:
+        "Creating wireframes and selecting the right technology stack",
       icon: "✏️",
     },
     {
@@ -48,14 +48,23 @@ const About = () => {
 
   const teamMembers = [
     {
-      name: "Alex Johnson",
+      name: "Joe Rakesh",
       role: "Lead Developer & Founder",
       bio: "Full-stack developer specializing in React, Node.js, and modern web architecture with 8+ years of professional experience.",
       image: "https://images.unsplash.com/photo-1501286353178-1ec871c09881",
       email: "rakeshjoe52@gmail.com",
       github: "https://github.com/joe-webServices",
-      linkedin: "https://linkedin.com/in/alexjohnson"
-    }
+      linkedin: "https://linkedin.com/in/alexjohnson",
+    },
+    {
+      name: "Joe Rakesh",
+      role: "Lead Developer & Founder",
+      bio: "Full-stack developer specializing in React, Node.js, and modern web architecture with 8+ years of professional experience.",
+      image: "https://images.unsplash.com/photo-1501286353178-1ec871c09881",
+      email: "rakeshjoe52@gmail.com",
+      github: "https://github.com/joe-webServices",
+      linkedin: "https://linkedin.com/in/alexjohnson",
+    },
   ];
 
   return (
@@ -63,7 +72,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-20">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="max-w-3xl mx-auto text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -73,7 +82,8 @@ const About = () => {
               About <span className="text-blue-600 heading-glow">JWS</span>
             </h1>
             <p className="text-lg text-gray-700 mb-8">
-              A freelance web development brand focused on building modern, fast, and scalable web applications
+              A freelance web development brand focused on building modern,
+              fast, and scalable web applications
             </p>
           </motion.div>
         </div>
@@ -83,7 +93,7 @@ const About = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div 
+            <motion.div
               className="space-y-6"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -94,13 +104,18 @@ const About = () => {
                 Our <span className="text-blue-600 heading-glow">Mission</span>
               </h2>
               <p className="text-gray-700">
-                JWS is a freelance web development brand dedicated to delivering exceptional web solutions that help businesses thrive in the digital landscape.
+                JWS is a freelance web development brand dedicated to delivering
+                exceptional web solutions that help businesses thrive in the
+                digital landscape.
               </p>
               <p className="text-gray-700">
-                We specialize in full-stack development, using modern frameworks and tools to build applications that are not only functional but also provide delightful user experiences.
+                We specialize in full-stack development, using modern frameworks
+                and tools to build applications that are not only functional but
+                also provide delightful user experiences.
               </p>
               <p className="text-gray-700">
-                Our focus is on clean code, performance optimization, and creating scalable solutions that grow with your business.
+                Our focus is on clean code, performance optimization, and
+                creating scalable solutions that grow with your business.
               </p>
               <div className="pt-4">
                 <h3 className="text-xl font-semibold mb-4">Our Core Values</h3>
@@ -115,7 +130,7 @@ const About = () => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -127,9 +142,14 @@ const About = () => {
                 <div className="aspect-video bg-blue-50 rounded-md mb-6 flex items-center justify-center">
                   <span className="text-7xl">👨‍💻</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Focused on Your Success</h3>
+                <h3 className="text-2xl font-bold mb-4">
+                  Focused on Your Success
+                </h3>
                 <p className="text-gray-600 mb-4">
-                  Every project we take on is treated with the utmost importance. We're not just building websites or applications; we're creating digital solutions that help your business succeed.
+                  Every project we take on is treated with the utmost
+                  importance. We're not just building websites or applications;
+                  we're creating digital solutions that help your business
+                  succeed.
                 </p>
                 <Link to="/contact" className="btn-primary inline-block">
                   Let's Work Together
@@ -143,7 +163,7 @@ const About = () => {
       {/* Our Team Section */}
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center max-w-2xl mx-auto mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -154,13 +174,14 @@ const About = () => {
               Meet Our <span className="text-blue-600 heading-glow">Team</span>
             </h2>
             <p className="text-gray-600">
-              Passionate professionals dedicated to creating exceptional web experiences
+              Passionate professionals dedicated to creating exceptional web
+              experiences
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <TeamCard 
+              <TeamCard
                 key={index}
                 name={member.name}
                 role={member.role}
@@ -178,7 +199,7 @@ const About = () => {
       {/* Work Process */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center max-w-2xl mx-auto mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -186,25 +207,28 @@ const About = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Our Work <span className="text-blue-600 heading-glow">Process</span>
+              Our Work{" "}
+              <span className="text-blue-600 heading-glow">Process</span>
             </h2>
             <p className="text-gray-600">
-              We follow a structured approach to ensure every project is delivered on time and exceeds expectations.
+              We follow a structured approach to ensure every project is
+              delivered on time and exceeds expectations.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {workProcess.map((step, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all"
-                whileHover={{ 
+                whileHover={{
                   y: -5,
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                  boxShadow:
+                    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                 }}
               >
                 <div className="text-4xl mb-4">{step.icon}</div>
@@ -219,7 +243,7 @@ const About = () => {
       {/* Tech Stack */}
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center max-w-2xl mx-auto mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -230,12 +254,13 @@ const About = () => {
               Our <span className="text-blue-600 heading-glow">Tech Stack</span>
             </h2>
             <p className="text-gray-600">
-              We use the latest technologies and tools to deliver high-quality web applications.
+              We use the latest technologies and tools to deliver high-quality
+              web applications.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div 
+            <motion.div
               className="bg-white rounded-lg p-6 shadow-md"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -264,7 +289,7 @@ const About = () => {
               </ul>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="bg-white rounded-lg p-6 shadow-md"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -293,7 +318,7 @@ const About = () => {
               </ul>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="bg-white rounded-lg p-6 shadow-md"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -329,7 +354,7 @@ const About = () => {
       <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -338,14 +363,15 @@ const About = () => {
             >
               Ready to start your next project?
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-xl mb-8 opacity-90"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              Let's work together to create a web solution that helps your business grow.
+              Let's work together to create a web solution that helps your
+              business grow.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -354,8 +380,8 @@ const About = () => {
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="bg-white text-blue-700 px-8 py-3 rounded-md font-bold hover:bg-blue-50 transition-colors inline-block hover:shadow-glow-white"
               >
                 Contact Us
