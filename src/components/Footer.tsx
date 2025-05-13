@@ -122,7 +122,7 @@ const Footer = () => {
         <hr className="border-blue-800 my-8" />
 
         <div className="text-center opacity-70 text-sm">
-          <p>&copy; {currentYear} Joe WebServices. All rights reserved.</p>
+          <p>&copy; {currentYear} JWS. All rights reserved.</p>
         </div>
       </div>
     </footer>

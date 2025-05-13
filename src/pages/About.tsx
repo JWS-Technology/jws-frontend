@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import TeamCard from "../components/TeamCard";
 
 const About = () => {
   const workProcess = [
@@ -45,6 +46,18 @@ const About = () => {
     "Meeting deadlines and staying within budget",
   ];
 
+  const teamMembers = [
+    {
+      name: "Alex Johnson",
+      role: "Lead Developer & Founder",
+      bio: "Full-stack developer specializing in React, Node.js, and modern web architecture with 8+ years of professional experience.",
+      image: "https://images.unsplash.com/photo-1501286353178-1ec871c09881",
+      email: "rakeshjoe52@gmail.com",
+      github: "https://github.com/joe-webServices",
+      linkedin: "https://linkedin.com/in/alexjohnson"
+    }
+  ];
+
   return (
     <div className="pt-16">
       {/* Hero Section */}
@@ -57,7 +70,7 @@ const About = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About <span className="text-blue-600 heading-glow">Joe WebServices</span>
+              About <span className="text-blue-600 heading-glow">JWS</span>
             </h1>
             <p className="text-lg text-gray-700 mb-8">
               A freelance web development brand focused on building modern, fast, and scalable web applications
@@ -81,7 +94,7 @@ const About = () => {
                 Our <span className="text-blue-600 heading-glow">Mission</span>
               </h2>
               <p className="text-gray-700">
-                Joe WebServices (JWS) is a freelance web development brand dedicated to delivering exceptional web solutions that help businesses thrive in the digital landscape.
+                JWS is a freelance web development brand dedicated to delivering exceptional web solutions that help businesses thrive in the digital landscape.
               </p>
               <p className="text-gray-700">
                 We specialize in full-stack development, using modern frameworks and tools to build applications that are not only functional but also provide delightful user experiences.
@@ -127,8 +140,43 @@ const About = () => {
         </div>
       </section>
 
-      {/* Work Process */}
+      {/* Our Team Section */}
       <section className="py-16 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center max-w-2xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Meet Our <span className="text-blue-600 heading-glow">Team</span>
+            </h2>
+            <p className="text-gray-600">
+              Passionate professionals dedicated to creating exceptional web experiences
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <TeamCard 
+                key={index}
+                name={member.name}
+                role={member.role}
+                bio={member.bio}
+                image={member.image}
+                email={member.email}
+                github={member.github}
+                linkedin={member.linkedin}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Work Process */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center max-w-2xl mx-auto mb-16"
@@ -154,6 +202,10 @@ const About = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all"
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
               >
                 <div className="text-4xl mb-4">{step.icon}</div>
                 <h3 className="text-xl font-bold mb-3">{step.title}</h3>
@@ -165,7 +217,7 @@ const About = () => {
       </section>
 
       {/* Tech Stack */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center max-w-2xl mx-auto mb-16"
@@ -189,6 +241,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
             >
               <h3 className="text-xl font-bold mb-4 text-blue-600">Frontend</h3>
               <ul className="space-y-2">
@@ -217,6 +270,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
             >
               <h3 className="text-xl font-bold mb-4 text-blue-600">Backend</h3>
               <ul className="space-y-2">
@@ -245,6 +299,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
             >
               <h3 className="text-xl font-bold mb-4 text-blue-600">Tools</h3>
               <ul className="space-y-2">
@@ -297,6 +352,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
               <Link 
                 to="/contact" 
