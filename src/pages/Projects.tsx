@@ -10,7 +10,7 @@ const Projects = () => {
         "An ISSN-certified e-magazine website built for the Department of English, St. Joseph's College, Trichy. Offers a smooth, mobile-responsive reading experience with a clean layout.",
       techStack: ["HTML", "CSS", "JavaScript"],
       image: "https://joerakesh-portfolio.netlify.app/Projects/engzine.jpeg",
-      link: "#",
+      link: "https://sjctni.edu/Department/ENGZINE/",
     },
     {
       title: "Mergen",
@@ -18,7 +18,15 @@ const Projects = () => {
         "A digital e-journal platform developed for the Department of English, St. Joseph's College, Trichy. Tailored for academic journal publishing with structured content.",
       techStack: ["HTML", "CSS", "JavaScript"],
       image: "https://joerakesh-portfolio.netlify.app/Projects/mergen.jpg",
-      link: "#",
+      link: "https://www.sjctni.edu/Department/Mergen/",
+    },
+    {
+      title: "AutoLead",
+      description:
+        "AutoLead helps businesses automate lead generation with AI-driven workflows. Convert conversations into qualified leads—on autopilot. Close more deals without chasing prospects.",
+      techStack: ["React", "TailwindCSS"],
+      image: "/AutoLead.png",
+      link: "https://autolead.store/",
     },
   ];
 
