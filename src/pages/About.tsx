@@ -350,18 +350,18 @@ const About = () => {
                   <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
                   Git
                 </li>
-                <li className="flex items-center">
+                {/* <li className="flex items-center">
                   <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
                   Docker
-                </li>
+                </li> */}
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
                   VS Code
                 </li>
-                <li className="flex items-center">
+                {/* <li className="flex items-center">
                   <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
                   Figma
-                </li>
+                </li> */}
               </ul>
             </motion.div>
           </div>
