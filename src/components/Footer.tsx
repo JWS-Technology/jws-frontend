@@ -1,6 +1,6 @@
-
 import { NavLink } from "react-router-dom";
 import { ArrowRight, Github, Mail } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,11 +15,11 @@ const Footer = () => {
               JWS<span className="text-white">.</span>
             </h3>
             <p className="opacity-80 max-w-xs">
-              Building modern, fast, and scalable web applications with clean code
-              and exceptional user experiences.
+              Building modern, fast, and scalable web applications with clean
+              code and exceptional user experiences.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a 
+              <a
                 href="https://github.com/joe-webServices"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -28,55 +28,64 @@ const Footer = () => {
               >
                 <Github />
               </a>
-              <a 
+              <a
                 href="mailto:rakeshjoe52@gmail.com"
                 className="text-white hover:text-blue-300 transition-colors"
                 aria-label="Email"
               >
                 <Mail />
               </a>
+              <a
+                href="https://wa.me/918248026750?text=Hi%20JWS%20team%2C%20I'm%20interested%20in%20your%20web%20development%20services.%20Can%20we%20schedule%20a%20quick%20call%20to%20discuss%20my%20project%3F"
+                className="text-white hover:text-blue-300 transition-colors"
+                aria-label="Email"
+              >
+                <FaWhatsapp className="w-6 h-6" />
+              </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-xl font-bold mb-4 text-blue-300">Quick Links</h4>
+            <h4 className="text-xl font-bold mb-4 text-blue-300">
+              Quick Links
+            </h4>
             <ul className="space-y-2">
               <li>
-                <NavLink 
-                  to="/" 
+                <NavLink
+                  to="/"
                   className="inline-flex items-center opacity-80 hover:opacity-100 hover:translate-x-1 transition-all"
                 >
                   <ArrowRight className="w-4 h-4 mr-2" /> Home
                 </NavLink>
               </li>
               <li>
-                <NavLink 
-                  to="/about" 
+                <NavLink
+                  to="/about"
                   className="inline-flex items-center opacity-80 hover:opacity-100 hover:translate-x-1 transition-all"
                 >
                   <ArrowRight className="w-4 h-4 mr-2" /> About
                 </NavLink>
               </li>
               <li>
-                <NavLink 
-                  to="/services" 
+                <NavLink
+                  to="/services"
                   className="inline-flex items-center opacity-80 hover:opacity-100 hover:translate-x-1 transition-all"
                 >
                   <ArrowRight className="w-4 h-4 mr-2" /> Services
                 </NavLink>
               </li>
               <li>
-                <NavLink 
-                  to="/projects" 
+                <NavLink
+                  to="/projects"
                   className="inline-flex items-center opacity-80 hover:opacity-100 hover:translate-x-1 transition-all"
                 >
                   <ArrowRight className="w-4 h-4 mr-2" /> Projects
                 </NavLink>
               </li>
               <li>
-                <NavLink 
-                  to="/contact" 
+                <NavLink
+                  to="/contact"
                   className="inline-flex items-center opacity-80 hover:opacity-100 hover:translate-x-1 transition-all"
                 >
                   <ArrowRight className="w-4 h-4 mr-2" /> Contact
@@ -106,7 +115,9 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-xl font-bold mb-4 text-blue-300">Get in Touch</h4>
+            <h4 className="text-xl font-bold mb-4 text-blue-300">
+              Get in Touch
+            </h4>
             <p className="opacity-80 mb-4">
               Have a project in mind? Let's build something amazing together.
             </p>

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { Github, Mail, MapPin, Phone } from "lucide-react";
+import { Phone, Mail, Github, MapPin } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+
 import ContactForm from "../components/ContactForm";
 
 const Contact = () => {
@@ -44,6 +46,21 @@ const Contact = () => {
               </div>
 
               <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="bg-blue-100 p-3 rounded-full mr-4">
+                    <FaWhatsapp className="text-blue-600 w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">Whatsapp</h3>
+                    <a
+                      href="https://wa.me/918248026750?text=Hi%20JWS%20team%2C%20I'm%20interested%20in%20your%20web%20development%20services.%20Can%20we%20schedule%20a%20quick%20call%20to%20discuss%20my%20project%3F"
+                      className="text-gray-600 hover:text-blue-600 transition-colors"
+                    >
+                      +91 918248026750
+                    </a>
+                  </div>
+                </div>
+
                 <div className="flex items-start">
                   <div className="bg-blue-100 p-3 rounded-full mr-4">
                     <Mail className="text-blue-600 w-5 h-5" />
