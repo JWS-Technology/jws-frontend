@@ -56,7 +56,7 @@ const Contact = () => {
                       href="https://wa.me/918248026750?text=Hi%20JWS%20team%2C%20I'm%20interested%20in%20your%20web%20development%20services.%20Can%20we%20schedule%20a%20quick%20call%20to%20discuss%20my%20project%3F"
                       className="text-gray-600 hover:text-blue-600 transition-colors"
                     >
-                      +91 918248026750
+                      +91 8248026750
                     </a>
                   </div>
                 </div>
