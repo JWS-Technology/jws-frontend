@@ -20,13 +20,11 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 pt-2">
               <a
-                href="https://github.com/joe-webServices"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://wa.me/918248026750?text=Hi%20JWS%20team%2C%20I'm%20interested%20in%20your%20web%20development%20services.%20Can%20we%20schedule%20a%20quick%20call%20to%20discuss%20my%20project%3F"
                 className="text-white hover:text-blue-300 transition-colors"
-                aria-label="GitHub"
+                aria-label="Email"
               >
-                <Github />
+                <FaWhatsapp className="w-6 h-6" />
               </a>
               <a
                 href="mailto:rakeshjoe52@gmail.com"
@@ -36,11 +34,13 @@ const Footer = () => {
                 <Mail />
               </a>
               <a
-                href="https://wa.me/918248026750?text=Hi%20JWS%20team%2C%20I'm%20interested%20in%20your%20web%20development%20services.%20Can%20we%20schedule%20a%20quick%20call%20to%20discuss%20my%20project%3F"
+                href="https://github.com/joe-webServices"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white hover:text-blue-300 transition-colors"
-                aria-label="Email"
+                aria-label="GitHub"
               >
-                <FaWhatsapp className="w-6 h-6" />
+                <Github />
               </a>
             </div>
           </div>
