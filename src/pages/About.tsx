@@ -50,11 +50,20 @@ const About = () => {
     {
       name: "Joe Rakesh",
       role: "Lead Developer & Founder",
-      bio: "Full-stack developer specializing in React, Node.js, and modern web architecture.",
+      bio: "Full-stack developer specializing in Next.js, React, Node.js, and modern web architecture.",
       image: "/JoeRakesh.jpg",
       email: "rakeshjoe52@gmail.com",
       github: "https://github.com/Joerakesh",
       linkedin: "https://www.linkedin.com/in/joerakesh/",
+    },
+    {
+      name: "Mariya Efron",
+      role: "Full-stack Developer",
+      bio: "Full-stack developer specializing in React, Node.js, and modern web architecture.",
+      image: "/MariyaEfron.jpg",
+      email: "mariyaefrony@gmail.com",
+      github: "https://github.com/MariyaEfronY",
+      linkedin: "https://www.linkedin.com/in/mariya-efron-y-33a41a295/",
     },
     {
       name: "Lenin Anto",
