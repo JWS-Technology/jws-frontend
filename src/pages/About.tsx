@@ -79,7 +79,7 @@ const About = () => {
       role: "Front-end Developer",
       bio: "Front-end developer specializing in HTML, CSS and JavaScript",
       image: "/SharmanLeenas.jpeg",
-      email: "leninanto8@gmail.com",
+      email: "shermanevyr2005@gmail.com",
       github: "https://github.com/Sharmanleenas",
       linkedin: "https://www.linkedin.com/in/sharman-leenas-0956b7301/",
     },
