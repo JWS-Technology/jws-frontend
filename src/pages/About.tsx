@@ -55,8 +55,26 @@ const About = () => {
       email: "rakeshjoe52@gmail.com",
       github: "https://github.com/Joerakesh",
       linkedin: "https://www.linkedin.com/in/joerakesh/",
+    },   {
+      name: "Noel Sebu",
+      role: "Full-stack Developer",
+      bio: "Full-stack developer specializing in Next.js, Node.js, and modern web architecture.",
+      image: "https://www.devnoel.org/_next/image?url=%2FD.png&w=640&q=75",
+      email: "noelsebu555@gmail.com",
+      github: "https://github.com/Noel1214",
+      linkedin: "https://www.linkedin.com/in/noel-sebu-57644b319/",
     },
+
     {
+      name: "Loyol Michael Vipin",
+      role: "Manager & Front-end Developer",
+      bio: "Front-end developer specializing in HTML & CSS",
+      image: "/Vipin.jpg",
+      email: "xlmvipin@gmail.com",
+      github: "https://github.com/michaelvipin",
+      linkedin: "https://www.linkedin.com/in/michael-vipin-99a657318/",
+    },
+{
       name: "Mariya Efron",
       role: "Full-stack Developer",
       bio: "Full-stack developer specializing in React, Node.js, and modern web architecture.",
@@ -64,24 +82,6 @@ const About = () => {
       email: "mariyaefrony@gmail.com",
       github: "https://github.com/MariyaEfronY",
       linkedin: "https://www.linkedin.com/in/mariya-efron-y-33a41a295/",
-    },
-    {
-      name: "Lenin Anto",
-      role: "Front-end Developer",
-      bio: "Front-end developer specializing in HTML & CSS",
-      image: "/LeninAnto.jpeg",
-      email: "leninanto8@gmail.com",
-      github: "https://github.com/LeninAnto",
-      linkedin: "https://www.linkedin.com/in/lenin-anto-34b85134b/",
-    },
-    {
-      name: "Sharman Leenas",
-      role: "Front-end Developer",
-      bio: "Front-end developer specializing in HTML, CSS and JavaScript",
-      image: "/SharmanLeenas.jpeg",
-      email: "shermanevyr2005@gmail.com",
-      github: "https://github.com/Sharmanleenas",
-      linkedin: "https://www.linkedin.com/in/sharman-leenas-0956b7301/",
     },
   ];
 
