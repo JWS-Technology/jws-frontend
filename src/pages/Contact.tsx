@@ -53,10 +53,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg">Whatsapp</h3>
                     <a
-                      href="https://wa.me/918248026750?text=Hi%20JWS%20team%2C%20I'm%20interested%20in%20your%20web%20development%20services.%20Can%20we%20schedule%20a%20quick%20call%20to%20discuss%20my%20project%3F"
+                      href="https://wa.me/916381574827?text=Hi%20JWS%20team%2C%20I'm%20interested%20in%20your%20web%20development%20services.%20Can%20we%20schedule%20a%20quick%20call%20to%20discuss%20my%20project%3F"
                       className="text-gray-600 hover:text-blue-600 transition-colors"
                     >
-                      +91 8248026750
+                      +91 6381574827
                     </a>
                   </div>
                 </div>
@@ -68,15 +68,15 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg">Email</h3>
                     <a
-                      href="mailto:rakeshjoe52@gmail.com"
+                      href="mailto:contact@jwstechnologies.com"
                       className="text-gray-600 hover:text-blue-600 transition-colors"
                     >
-                      hellow.jws@gmail.com
+                      contact@jwstechnologies.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start">
+                {/* <div className="flex items-start">
                   <div className="bg-blue-100 p-3 rounded-full mr-4">
                     <Github className="text-blue-600 w-5 h-5" />
                   </div>
@@ -91,7 +91,7 @@ const Contact = () => {
                       github.com/joe-webservices
                     </a>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex items-start">
                   <div className="bg-blue-100 p-3 rounded-full mr-4">
@@ -115,7 +115,7 @@ const Contact = () => {
                       project? Feel free to reach out.
                     </p>
                     <div className="flex space-x-4">
-                      <a
+                      {/* <a
                         href="https://github.com/joe-webservices"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -123,9 +123,16 @@ const Contact = () => {
                         aria-label="GitHub"
                       >
                         <Github className="w-5 h-5" />
+                      </a> */}
+                      <a
+                        href="https://wa.me/916381574827?text=Hi%20JWS%20team%2C%20I'm%20interested%20in%20your%20web%20development%20services.%20Can%20we%20schedule%20a%20quick%20call%20to%20discuss%20my%20project%3F"
+                        className="bg-white/20 p-2 rounded-full hover:bg-white/30 transition-colors"
+                        aria-label="Email"
+                      >
+                        <FaWhatsapp className="w-5 h-5" />
                       </a>
                       <a
-                        href="mailto:rakeshjoe52@gmail.com"
+                        href="mailto:contact@jwstechnologies.com"
                         className="bg-white/20 p-2 rounded-full hover:bg-white/30 transition-colors"
                         aria-label="Email"
                       >
